@@ -1,6 +1,6 @@
-with ratings as (
+with enriched as (
 
-    select * from {{ ref('stg_ratings') }}
+    select * from {{ ref('int_ratings_enriched') }}
 
 ),
 
@@ -12,9 +12,11 @@ final as (
         movie_id,
         rating_value,
         rated_at,
-        rated_at::date as rating_date
+        rated_at::date as rating_date,
+        rating_month,
+        rating_season
 
-    from ratings
+    from enriched
 
 )
 
