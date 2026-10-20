@@ -1,0 +1,27 @@
+name: 'peliculas_100k_project'
+version: '1.0.0'
+
+profile: 'peliculas_100k_project'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  peliculas_100k_project:
+    staging:
+      +schema: staging
+      +materialized: table
+    intermediate:
+      +schema: intermediate
+      +materialized: view
+    marts:
+      +schema: marts
+      +materialized: table

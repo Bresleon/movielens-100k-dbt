@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres_100k_dw
+    restart: always
+    environment:
+      POSTGRES_DB: peliculas_100k_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - shared_net
+
+volumes:
+  pgdata:
+    name: pgdata_peliculas_100k
+
+networks:
+  shared_net:
+    external: true
+    name: dataeng-pelicula-network
