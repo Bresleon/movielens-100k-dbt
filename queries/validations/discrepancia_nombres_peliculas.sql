@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     movie_id,
     movie_title,
     -- Extrae el contenido dentro de paréntesis que no sea el año de 4 dígitos

@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     user_id,
     movie_id,
     COUNT(*) AS total_ratings_registrados,
