@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     m.movie_id,
     m.movie_title,
     m.release_date

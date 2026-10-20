@@ -1,6 +1,7 @@
-SELECT 
+SELECT
     movie_id,
     movie_title,
+    genres_list,
     total_ratings,
     avg_rating
 FROM marts.dim_movies
