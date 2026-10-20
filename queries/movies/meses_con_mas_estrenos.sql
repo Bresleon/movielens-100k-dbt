@@ -1,4 +1,4 @@
-SELECT 
+SELECT
     TO_CHAR(release_date, 'TMMonth') AS mes_nombre,
     EXTRACT(MONTH FROM release_date)::integer AS numero_mes,
     COUNT(*) AS cantidad_estrenos
