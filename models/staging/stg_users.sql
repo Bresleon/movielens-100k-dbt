@@ -4,7 +4,7 @@ with source as (
 
 ),
 
-renamed as (
+cleaned as (
 
     select
         cast(user_id as integer)           as user_id,
@@ -14,7 +14,8 @@ renamed as (
         trim(zip_code)                     as zip_code
 
     from source
+    where user_id is not null
 
 )
 
-select * from renamed
+select * from cleaned
