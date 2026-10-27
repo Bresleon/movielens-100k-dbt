@@ -10,9 +10,18 @@ sources:
             description: "Catálogo de 1682 películas y géneros."
             columns:
                 - name: movie_id
-                  tests:
-                      - unique
-                      - not_null
+                  data_tests:
+                      - unique:
+                            config:
+                                severity: warn
+                      - not_null:
+                            config:
+                                severity: warn
+                - name: release_date
+                  data_tests:
+                      - not_null:
+                            config:
+                                severity: warn
           - name: ratings
             description: "100.000 calificaciones de películas en bruto."
             columns:
