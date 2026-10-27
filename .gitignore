@@ -1,5 +1,35 @@
-
+# ==========================================
+# 1. dbt: Artefactos, logs y estado local
+# ==========================================
 target/
 dbt_packages/
 logs/
+.user.yml
+
+# ==========================================
+# 2. Dagster: Entornos temporales y estado
+# ==========================================
+.tmp_dagster_home*
+.dagster_home/
+storage/
+history/
+
+# ==========================================
+# 3. Python: Compilación y empaquetado
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ==========================================
+# 4. Entornos virtuales y credenciales
+# ==========================================
 .env
+.venv/
+env/
+venv/
+*.sqlite
