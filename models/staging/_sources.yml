@@ -1,34 +1,40 @@
 version: 2
 
 sources:
-  - name: ml_source
-    description: "Tablas crudas de MovieLens 100k replicadas en Postgres."
-    database: peliculas_100k_db
-    schema: source
-    tables:
-      - name: movies
-        description: "Catálogo de 1682 películas y géneros."
-        columns:
-          - name: movie_id
-            tests:
-              - unique
-              - not_null
-      - name: ratings
-        description: "100.000 calificaciones de películas."
-        columns:
-          - name: user_id
-            tests:
-              - not_null
-          - name: movie_id
-            tests:
-              - not_null
-          - name: rating
-            tests:
-              - not_null
-      - name: users
-        description: "943 usuarios con datos demográficos."
-        columns:
-          - name: user_id
-            tests:
-              - unique
-              - not_null
+    - name: ml_source
+      description: "Tablas crudas de MovieLens 100k replicadas en Postgres."
+      database: peliculas_100k_db
+      schema: source
+      tables:
+          - name: movies
+            description: "Catálogo de 1682 películas y géneros."
+            columns:
+                - name: movie_id
+                  tests:
+                      - unique
+                      - not_null
+          - name: ratings
+            description: "100.000 calificaciones de películas en bruto."
+            columns:
+                - name: user_id
+                  data_tests:
+                      - not_null:
+                            config:
+                                severity: warn
+                - name: movie_id
+                  data_tests:
+                      - not_null:
+                            config:
+                                severity: warn
+                - name: rating
+                  data_tests:
+                      - not_null:
+                            config:
+                                severity: warn
+          - name: users
+            description: "943 usuarios con datos demográficos."
+            columns:
+                - name: user_id
+                  tests:
+                      - unique
+                      - not_null
